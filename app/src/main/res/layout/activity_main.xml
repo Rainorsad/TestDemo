@@ -57,7 +57,16 @@
             android:textSize="24sp"
             android:text="仿QQ侧拉view"
             />
-
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/canves"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="画笔"
+            />
 
     </com.zhy.autolayout.AutoLinearLayout>
 </android.support.v4.widget.NestedScrollView>

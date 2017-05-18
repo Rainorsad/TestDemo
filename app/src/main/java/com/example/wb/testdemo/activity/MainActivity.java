@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
+import com.example.wb.testdemo.activity.canves.CanvesActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable})
+    @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.qqdrawable:
                 initclass(QqDrawableActivity.class);
+                break;
+            case R.id.canves:
+                initclass(CanvesActivity.class);
                 break;
         }
     }

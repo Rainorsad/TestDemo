@@ -30,6 +30,9 @@
 
         <activity android:name=".activity.QqDrawableActivity"
             android:theme="@style/MyAppTheme" />
+
+        <activity android:name=".activity.canves.CanvesActivity"
+            android:theme="@style/MyAppTheme" />
     </application>
 
 </manifest>

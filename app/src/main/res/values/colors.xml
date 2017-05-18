@@ -7,4 +7,5 @@
     <color name="view_line">#dfdfdf</color><!-- 我的界面分隔线颜色-->
     <color name="tran">#a0000000</color><!-- 背景色透明化-->
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>
