@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context="com.example.wb.testdemo.activity.MainActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/viewmotiontest"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="ViewMotionevent测试"
+            />
+
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/erweimatest"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="二维码精确度测试"
+            />
+
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/textviewtest"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="text颜色测试"
+            />
+
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/qqdrawable"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="仿QQ侧拉view"
+            />
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="view_line">#dfdfdf</color><!-- 我的界面分隔线颜色-->
+    <color name="tran">#a0000000</color><!-- 背景色透明化-->
+    <color name="white">#ffffff</color>
+</resources>

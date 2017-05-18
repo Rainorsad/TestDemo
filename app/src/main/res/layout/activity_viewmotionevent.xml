@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按下时："
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:background="@drawable/textviewborder"
+            android:id="@+id/viewmontion_oldx"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="oldx"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:background="@drawable/textviewborder"
+            android:id="@+id/viewmontion_oldy"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="oldy"
+            android:textSize="18sp"
+            />
+        </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="移动时："
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:background="@drawable/textviewborder"
+            android:id="@+id/viewmontion_x"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="newx"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:background="@drawable/textviewborder"
+            android:id="@+id/viewmontion_newy"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="newy"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/viewmontionview_rela"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/textviewborder"
+        >
+        <View
+            android:id="@+id/viewmontionview"
+            android:background="@color/view_line"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            />
+
+        </LinearLayout>
+
+</LinearLayout>
