@@ -1,4 +1,4 @@
-package com.example.wb.testdemo.activity.canves;
+package com.example.wb.testdemo.canves;
 
 import android.content.Context;
 import android.graphics.Canvas;

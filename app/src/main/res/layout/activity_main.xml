@@ -65,7 +65,17 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="画笔"
+            android:text="画笔时钟"
+            />
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/photoshop"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="美图秀秀图片处理"
             />
 
     </com.zhy.autolayout.AutoLinearLayout>

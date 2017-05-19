@@ -1,4 +1,4 @@
-package com.example.wb.testdemo.activity.canves;
+package com.example.wb.testdemo.canves;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

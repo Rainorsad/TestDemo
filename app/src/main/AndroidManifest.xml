@@ -31,7 +31,10 @@
         <activity android:name=".activity.QqDrawableActivity"
             android:theme="@style/MyAppTheme" />
 
-        <activity android:name=".activity.canves.CanvesActivity"
+        <activity android:name=".canves.CanvesActivity"
+            android:theme="@style/MyAppTheme" />
+
+        <activity android:name=".meituxiuxui.MeituActivity"
             android:theme="@style/MyAppTheme" />
     </application>
 
