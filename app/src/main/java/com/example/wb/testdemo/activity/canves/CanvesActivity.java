@@ -11,10 +11,12 @@ import com.example.wb.testdemo.R;
  */
 
 public class CanvesActivity extends AppCompatActivity{
+    private CanvesView canvas;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_canves);
+        canvas = (CanvesView) findViewById(R.id.canvas);
     }
 }

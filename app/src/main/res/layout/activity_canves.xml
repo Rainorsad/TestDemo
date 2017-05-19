@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <com.example.wb.testdemo.activity.canves.CanvesView
+        android:id="@+id/canvas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
