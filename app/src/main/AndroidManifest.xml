@@ -36,6 +36,9 @@
 
         <activity android:name=".meituxiuxui.MeituActivity"
             android:theme="@style/MyAppTheme" />
+
+        <activity android:name=".guaguale.GuaguaLeActivity"
+            android:theme="@style/MyAppTheme" />
     </application>
 
 </manifest>

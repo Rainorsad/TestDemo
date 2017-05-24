@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
 import com.example.wb.testdemo.canves.CanvesActivity;
+import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
 import com.example.wb.testdemo.meituxiuxui.MeituActivity;
 
 import butterknife.ButterKnife;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     TextView qqdrawable;
     @InjectView(R.id.photoshop)
     TextView photoshop;
+    @InjectView(R.id.guaguale)
+    TextView guaguale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop})
+    @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
+    R.id.guaguale})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.photoshop:
                 initclass(MeituActivity.class);
+                break;
+            case R.id.guaguale:
+                initclass(GuaguaLeActivity.class);
                 break;
         }
     }

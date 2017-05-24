@@ -35,9 +35,11 @@ public class MeituActivity extends AppCompatActivity implements SeekBar.OnSeekBa
     private Bitmap bitmap;
     private ColorMatrix colorMatrix;//颜色矩阵
 
-    private int mHue;  //色调
-    private int mStauration;  //饱和度
-    private int mLum;  //亮度
+    private float mHue;  //色调
+    private float mStauration;  //饱和度
+    private float mLum;  //亮度
+
+    private int MID_VALUE = 127; //中间值
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,16 +65,15 @@ public class MeituActivity extends AppCompatActivity implements SeekBar.OnSeekBa
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         switch (seekBar.getId()){
             case R.id.seekone:
-                mHue = progress/100;
+                mHue = (progress - MID_VALUE)*1.0F / MID_VALUE*180;
                 break;
             case R.id.seektwo:
-                mStauration = 2;
+                mStauration = progress * 1.0F / MID_VALUE;
                 break;
             case R.id.seekthree:
-                mLum = progress/100;
+                mLum = progress * 1.0F /MID_VALUE;
                 break;
         }
-        img.setImageBitmap(handlerImageEffect(bitmap,mHue,mStauration,mLum));
     }
 
     @Override
@@ -82,7 +83,7 @@ public class MeituActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-
+        img.setImageBitmap(handlerImageEffect(bitmap,mHue,mStauration,mLum));
     }
 
     public static Bitmap handlerImageEffect(Bitmap bitmap,float hue,float staturation,float lum){

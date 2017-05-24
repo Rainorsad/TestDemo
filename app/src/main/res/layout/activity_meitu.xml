@@ -11,21 +11,20 @@
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:max="100"
         />
     <SeekBar
         android:layout_marginTop="50dp"
         android:id="@+id/seekone"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:max="100"
+        android:max="255"
         />
     <SeekBar
         android:layout_marginTop="10dp"
         android:id="@+id/seektwo"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:max="100"
+        android:max="255"
         />
     <SeekBar
         android:layout_marginTop="10dp"
@@ -33,6 +32,6 @@
         android:id="@+id/seekthree"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:max="100"
+        android:max="255"
         />
 </LinearLayout>
