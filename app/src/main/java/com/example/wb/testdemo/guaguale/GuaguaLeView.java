@@ -77,4 +77,9 @@ public class GuaguaLeView extends View{
         canvas.drawBitmap(mBgBitmap,0,0,null);
         canvas.drawBitmap(mFgBitmap,0,0,null);
     }
+
+    public void setmBgBitmap(Bitmap bm){
+        mBgBitmap = Bitmap.createBitmap(bm.getWidth(),bm.getHeight(),Bitmap.Config.ARGB_8888);
+        invalidate();
+    }
 }
