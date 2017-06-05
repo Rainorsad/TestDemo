@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="仿刮刮乐"
+            android:text="下载速度测试"
             />
     </com.zhy.autolayout.AutoLinearLayout>
 </android.support.v4.widget.NestedScrollView>
