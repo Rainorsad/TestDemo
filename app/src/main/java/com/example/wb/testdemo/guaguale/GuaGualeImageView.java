@@ -22,19 +22,25 @@ public class GuaGualeImageView extends ImageView {
     private Paint mPaint;
     private Canvas mCanvas;
     private Path mPath;
+    private Context mContext;
+    private int mWidth;
+    private int mHeight;
 
     public GuaGualeImageView(Context context) {
         super(context);
+        this.mContext = context;
         initView();
     }
 
     public GuaGualeImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
         initView();
     }
 
     public GuaGualeImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.mContext = context;
         initView();
     }
 
@@ -50,18 +56,17 @@ public class GuaGualeImageView extends ImageView {
 
         mPath = new Path();
 
-//        mFgBitmap = Bitmap.createBitmap();
+        mFgBitmap = Bitmap.createBitmap(1000,1000,Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mFgBitmap);
         mCanvas.drawColor(Color.GRAY);
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         canvas.drawBitmap(mFgBitmap, 0, 0, null);
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -77,5 +82,13 @@ public class GuaGualeImageView extends ImageView {
         mCanvas.drawPath(mPath, mPaint);
         invalidate();
         return true;
+    }
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mWidth = MeasureSpec.getMode(widthMeasureSpec);
+        mHeight = MeasureSpec.getMode(heightMeasureSpec);
     }
 }

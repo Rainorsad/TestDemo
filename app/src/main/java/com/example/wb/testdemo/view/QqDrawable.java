@@ -1,6 +1,7 @@
 package com.example.wb.testdemo.view;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -42,7 +43,9 @@ public class QqDrawable extends FrameLayout{
 
     private void initView() {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        window_width = wm.getDefaultDisplay().getWidth();
+        Point size = new Point();
+        wm.getDefaultDisplay().getSize(size);
+        window_width =size.x;
         mViewDragHelper = ViewDragHelper.create(this,callback);
     }
 

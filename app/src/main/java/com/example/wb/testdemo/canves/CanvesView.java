@@ -3,8 +3,10 @@ package com.example.wb.testdemo.canves;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
@@ -53,12 +55,15 @@ public class CanvesView extends View{
         now = Calendar.getInstance();
         mPaint = new Paint();
 
-        mPaint.setColor(getResources().getColor(R.color.black));
+//        mPaint.setColor(getResources().getColor(R.color.black,null));
+        mPaint.setColor(ContextCompat.getColor(context, R.color.black));
 
         //获得屏幕宽高，取中心为圆心
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth();
-        int height = wm.getDefaultDisplay().getHeight();
+        Point size = new Point();
+        wm.getDefaultDisplay().getSize(size);
+        int width = size.x;
+        int height = size.y;
 
         mRadius = width/2;
 
