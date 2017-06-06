@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     TextView photoshop;
     @InjectView(R.id.guaguale)
     TextView guaguale;
+    @InjectView(R.id.ciecleview)
+    TextView circle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale})
+    R.id.guaguale,R.id.ciecleview})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.guaguale:
                 initclass(GuaguaLeActivity.class);
+                break;
+            case R.id.ciecleview:
                 break;
         }
     }

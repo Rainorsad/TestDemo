@@ -75,9 +75,7 @@
         <activity android:name=".guaguale.GuaguaLeActivity"
             android:theme="@style/MyAppTheme" />
 
-        <service android:name=".service.LoadApkService" />
-        <service android:name=".service.WaiceLoadApkService" />
-        <service android:name=".service.WaizhengLoadApkService" />
+        <activity android:name=".circleview.CircleviewActivity" />
     </application>
 
 </manifest>
