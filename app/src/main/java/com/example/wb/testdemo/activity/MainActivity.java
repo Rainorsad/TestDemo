@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
 import com.example.wb.testdemo.canves.CanvesActivity;
+import com.example.wb.testdemo.circleview.CircleviewActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
 import com.example.wb.testdemo.meituxiuxui.MeituActivity;
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 initclass(GuaguaLeActivity.class);
                 break;
             case R.id.ciecleview:
+                initclass(CircleviewActivity.class);
                 break;
         }
     }
