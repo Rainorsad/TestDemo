@@ -8,13 +8,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.PixelFormat;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
@@ -22,6 +19,8 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.wb.testdemo.R;
+
+import utils.Utils;
 
 /**
  * Created by Zhangchen on 2017/6/7.
@@ -99,41 +98,24 @@ public class CircleImageView extends ImageView{
     @Override
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        mSrcBitmap = getBitmapFromDrawable(drawable);
+        mSrcBitmap = Utils.getBitmapFromDrawable(drawable);
         setup();
     }
 
     @Override
     public void setImageURI(Uri uri) {
         super.setImageURI(uri);
-        mSrcBitmap = getBitmapFromDrawable(getDrawable());
+        mSrcBitmap = Utils.getBitmapFromDrawable(getDrawable());
         setup();
     }
 
     @Override
     public void setImageResource(@DrawableRes int resId) {
         super.setImageResource(resId);
-        mSrcBitmap = getBitmapFromDrawable(getDrawable());
+        mSrcBitmap = Utils.getBitmapFromDrawable(getDrawable());
         setup();
     }
 
-    //drawable转换为bitmap
-    public static Bitmap getBitmapFromDrawable(Drawable drawable) {
-        if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable) drawable).getBitmap();
-        } else if (drawable instanceof NinePatchDrawable) {
-            Bitmap bitmap = Bitmap.createBitmap(
-                    drawable.getIntrinsicWidth(),
-                    drawable.getIntrinsicHeight(),
-                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(bitmap);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            drawable.draw(canvas);
-            return bitmap;
-        } else {
-            return null;
-        }
-    }
 
     private void setup() {
         if (!mReady){
