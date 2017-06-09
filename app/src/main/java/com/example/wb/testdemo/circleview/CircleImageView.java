@@ -55,6 +55,7 @@ public class CircleImageView extends ImageView{
     private boolean mBorderOverlay;
     private boolean mReady = false;
     private boolean mSetupPending;
+    private boolean mDisableCircularTransformation = true;
 
 
     public CircleImageView(Context context) {
@@ -126,39 +127,34 @@ public class CircleImageView extends ImageView{
         if (mSrcBitmap == null){
             return;
         }
-
+        mDisableCircularTransformation = false;
         // 构建渲染器，用mBitmap来填充绘制区域 ，参数值代表如果图片太小的话 就直接拉伸
-        mBitmapShader = new BitmapShader(mSrcBitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
-        //设置画笔反锯齿
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        //设置画笔渲染器
-        mPaint.setShader(mBitmapShader);
 
-        //设置边界画笔样式
-        mBorderPaint.setStyle(Paint.Style.STROKE);
-        mBorderPaint.setAntiAlias(true);
-        mBorderPaint.setColor(mBorderColor);
-        mBorderPaint.setStrokeWidth(mBorderWidth); //画笔边界宽度
-
-        //取原图片的宽高
-        mBitmapWidth = mSrcBitmap.getWidth();
-        mBitmapHeight = mSrcBitmap.getHeight();
-
-        //设置含边界显示区域，取的是CircleImageView的布局实际大小，为方形，查看xml也就是160dp(240px)  getWidth得到是某个view的实际尺寸
-        mBorderRect.set(0,0,getWidth(),getHeight());
-        mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2, (mBorderRect.width() - mBorderWidth) / 2);
-        // 初始图片显示区域为mBorderRect（CircleImageView的布局实际大小）
-        mDrawableRect.set(mBorderRect);
-        if (!mBorderOverlay){
-            //demo里始终执行
-            //通过inset方法  使得图片显示的区域从mBorderRect大小上下左右内移边界的宽度形成区域，查看xml边界宽度为2dp（3px）,所以方形边长为就是160-4=156dp(234px)
-            mDrawableRect.inset(mBorderWidth,mBorderWidth);
-        }
-        //这里计算的是内圆的最小半径，也即去除边界宽度的半径
-        mDrawableRadius = Math.min(mDrawableRect.height()/2,mDrawableRect.width()/2);
-        //设置渲染器的变换矩阵也即是mBitmap用何种缩放形式填充
-        updateShaderMatrix();
+//
+//        //设置边界画笔样式
+//        mBorderPaint.setStyle(Paint.Style.STROKE);
+//        mBorderPaint.setAntiAlias(true);
+//        mBorderPaint.setColor(mBorderColor);
+//        mBorderPaint.setStrokeWidth(mBorderWidth); //画笔边界宽度
+//
+//        //取原图片的宽高
+//        mBitmapWidth = mSrcBitmap.getWidth();
+//        mBitmapHeight = mSrcBitmap.getHeight();
+//
+//        //设置含边界显示区域，取的是CircleImageView的布局实际大小，为方形，查看xml也就是160dp(240px)  getWidth得到是某个view的实际尺寸
+//        mBorderRect.set(0,0,getWidth(),getHeight());
+//        mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2, (mBorderRect.width() - mBorderWidth) / 2);
+//        // 初始图片显示区域为mBorderRect（CircleImageView的布局实际大小）
+//        mDrawableRect.set(mBorderRect);
+//        if (!mBorderOverlay){
+//            //demo里始终执行
+//            //通过inset方法  使得图片显示的区域从mBorderRect大小上下左右内移边界的宽度形成区域，查看xml边界宽度为2dp（3px）,所以方形边长为就是160-4=156dp(234px)
+//            mDrawableRect.inset(mBorderWidth,mBorderWidth);
+//        }
+//        //这里计算的是内圆的最小半径，也即去除边界宽度的半径
+//        mDrawableRadius = Math.min(mDrawableRect.height()/2,mDrawableRect.width()/2);
+//        //设置渲染器的变换矩阵也即是mBitmap用何种缩放形式填充
+//        updateShaderMatrix();
         invalidate();
     }
 
@@ -168,7 +164,7 @@ public class CircleImageView extends ImageView{
         float dy = 0;
 
         mShaderMatrix.set(null);
-        // 这里不好理解 这个不等式也就是(mBitmapWidth / mDrawableRect.width()) > (mBitmapHeight / mDrawableRect.height())
+        //这个不等式也就是(mBitmapWidth / mDrawableRect.width()) > (mBitmapHeight / mDrawableRect.height())
         //取最小的缩放比例
         if (mBitmapWidth * mDrawableRect.height() > mDrawableRect.width() * mBitmapHeight) {
             //y轴缩放 x轴平移 使得图片的y轴方向的边的尺寸缩放到图片显示区域（mDrawableRect）一样）
@@ -189,8 +185,21 @@ public class CircleImageView extends ImageView{
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+        Log.d("测试一下","1");
+        if (mDisableCircularTransformation) {
+            super.onDraw(canvas);
+            return;
+        }
         Log.d("测试一下",mDrawableRect.centerX()+"  "+mDrawableRect.centerY()+"  "+mDrawableRadius);
-        canvas.drawCircle(mDrawableRect.centerX(), mDrawableRect.centerY(), mDrawableRadius,mPaint);
+        if (mSrcBitmap == null){
+            Log.d("测试一下","哈哈");
+        }
+        mBitmapShader = new BitmapShader(mSrcBitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+        //设置画笔反锯齿
+        mPaint = new Paint();
+//        mPaint.setAntiAlias(true);
+        //设置画笔渲染器
+        mPaint.setShader(mBitmapShader);
+        canvas.drawCircle(375, 375, 200,mPaint);
     }
 }

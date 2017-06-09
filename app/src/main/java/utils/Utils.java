@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 
 /**
+ * 工具类
  * Created by Zhangchen on 2017/6/8.
  */
 
