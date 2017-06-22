@@ -130,6 +130,19 @@ public class CircleImageView extends ImageView{
         setup();
     }
 
+    //保持宽高比
+    @Override
+    public void setAdjustViewBounds(boolean adjustViewBounds) {
+        if (adjustViewBounds){
+            throw new IllegalArgumentException("adjustViewBounds not supported.");
+        }
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        setup();
+    }
 
     private void setup() {
         Log.d("测试一下","setup()");
@@ -217,7 +230,7 @@ public class CircleImageView extends ImageView{
         // 平移
         mShaderMatrix.postTranslate((int) (dx + 0.5f) + mDrawableRect.left, (int) (dy + 0.5f) + mDrawableRect.top);
         // 设置变换矩阵
-//        mBitmapShader.setLocalMatrix(mShaderMatrix);
+        mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
     @Override

@@ -118,6 +118,7 @@ public class CircleImage extends ImageView {
         }
     }
 
+    //是否保持宽高比，与MaxWidth、MaxHeight一起使用，否则单独使用没有效果
     @Override
     public void setAdjustViewBounds(boolean adjustViewBounds) {
         Log.d("测试一下","setAdjustViewBounds(boolean adjustViewBounds)");
