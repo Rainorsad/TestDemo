@@ -69,17 +69,18 @@ public class CircleImage extends ImageView {
 
     public CircleImage(Context context) {
         super(context);
-
+        Log.d("测试一下","CircleImage(Context context)");
         init();
     }
 
     public CircleImage(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        Log.d("测试一下","CircleImage(Context context, AttributeSet attrs)");
     }
 
     public CircleImage(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
+        Log.d("测试一下","CircleImage(Context context, AttributeSet attrs, int defStyle)");
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView, defStyle, 0);
 
         mBorderWidth = a.getDimensionPixelSize(R.styleable.CircleImageView_civ_border_width, DEFAULT_BORDER_WIDTH);
@@ -93,6 +94,7 @@ public class CircleImage extends ImageView {
     }
 
     private void init() {
+        Log.d("测试一下","init()");
         super.setScaleType(SCALE_TYPE);
         mReady = true;
 
@@ -104,11 +106,13 @@ public class CircleImage extends ImageView {
 
     @Override
     public ScaleType getScaleType() {
+        Log.d("测试一下","getScaleType()");
         return SCALE_TYPE;
     }
 
     @Override
     public void setScaleType(ScaleType scaleType) {
+        Log.d("测试一下","setScaleType(ScaleType scaleType)");
         if (scaleType != SCALE_TYPE) {
             throw new IllegalArgumentException(String.format("ScaleType %s not supported.", scaleType));
         }
@@ -116,7 +120,7 @@ public class CircleImage extends ImageView {
 
     @Override
     public void setAdjustViewBounds(boolean adjustViewBounds) {
-
+        Log.d("测试一下","setAdjustViewBounds(boolean adjustViewBounds)");
         if (adjustViewBounds) {
             throw new IllegalArgumentException("adjustViewBounds not supported.");
         }
@@ -124,7 +128,7 @@ public class CircleImage extends ImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.d("测试一下","2");
+        Log.d("测试一下","onDraw(Canvas canvas)");
         if (mDisableCircularTransformation) {
             super.onDraw(canvas);
             return;
@@ -146,26 +150,31 @@ public class CircleImage extends ImageView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        Log.d("测试一下","onSizeChanged(int w, int h, int oldw, int oldh)");
         setup();
     }
 
     @Override
     public void setPadding(int left, int top, int right, int bottom) {
         super.setPadding(left, top, right, bottom);
+        Log.d("测试一下","setPadding(int left, int top, int right, int bottom)");
         setup();
     }
 
     @Override
     public void setPaddingRelative(int start, int top, int end, int bottom) {
         super.setPaddingRelative(start, top, end, bottom);
+        Log.d("测试一下","setPaddingRelative(int start, int top, int end, int bottom)");
         setup();
     }
 
     public int getBorderColor() {
+        Log.d("测试一下","getBorderColor()");
         return mBorderColor;
     }
 
     public void setBorderColor(@ColorInt int borderColor) {
+        Log.d("测试一下","setBorderColor(@ColorInt int borderColor)");
         if (borderColor == mBorderColor) {
             return;
         }
@@ -180,6 +189,7 @@ public class CircleImage extends ImageView {
      */
     @Deprecated
     public void setBorderColorResource(@ColorRes int borderColorRes) {
+        Log.d("测试一下","setBorderColorResource(@ColorRes int borderColorRes)");
         setBorderColor(getContext().getResources().getColor(borderColorRes));
     }
 
@@ -192,6 +202,7 @@ public class CircleImage extends ImageView {
      */
     @Deprecated
     public int getFillColor() {
+        Log.d("测试一下","getFillColor()");
         return mFillColor;
     }
 
@@ -205,6 +216,7 @@ public class CircleImage extends ImageView {
      */
     @Deprecated
     public void setFillColor(@ColorInt int fillColor) {
+        Log.d("测试一下","setFillColor(@ColorInt int fillColor)");
         if (fillColor == mFillColor) {
             return;
         }
@@ -225,14 +237,17 @@ public class CircleImage extends ImageView {
      */
     @Deprecated
     public void setFillColorResource(@ColorRes int fillColorRes) {
+        Log.d("测试一下","setFillColorResource(@ColorRes int fillColorRes)");
         setFillColor(getContext().getResources().getColor(fillColorRes));
     }
 
     public int getBorderWidth() {
+        Log.d("测试一下","getBorderWidth() ");
         return mBorderWidth;
     }
 
     public void setBorderWidth(int borderWidth) {
+        Log.d("测试一下","setBorderWidth(int borderWidth)");
         if (borderWidth == mBorderWidth) {
             return;
         }
@@ -242,10 +257,12 @@ public class CircleImage extends ImageView {
     }
 
     public boolean isBorderOverlay() {
+        Log.d("测试一下","isBorderOverlay()");
         return mBorderOverlay;
     }
 
     public void setBorderOverlay(boolean borderOverlay) {
+        Log.d("测试一下","setBorderOverlay(boolean borderOverlay)");
         if (borderOverlay == mBorderOverlay) {
             return;
         }
@@ -255,10 +272,12 @@ public class CircleImage extends ImageView {
     }
 
     public boolean isDisableCircularTransformation() {
+        Log.d("测试一下","isDisableCircularTransformation()");
         return mDisableCircularTransformation;
     }
 
     public void setDisableCircularTransformation(boolean disableCircularTransformation) {
+        Log.d("测试一下","setDisableCircularTransformation(boolean disableCircularTransformation)");
         if (mDisableCircularTransformation == disableCircularTransformation) {
             return;
         }
@@ -269,30 +288,35 @@ public class CircleImage extends ImageView {
 
     @Override
     public void setImageBitmap(Bitmap bm) {
+        Log.d("测试一下","setImageBitmap(Bitmap bm)");
         super.setImageBitmap(bm);
         initializeBitmap();
     }
 
     @Override
     public void setImageDrawable(Drawable drawable) {
+        Log.d("测试一下","setImageDrawable(Drawable drawable)");
         super.setImageDrawable(drawable);
         initializeBitmap();
     }
 
     @Override
     public void setImageResource(@DrawableRes int resId) {
+        Log.d("测试一下","setImageResource(@DrawableRes int resId)");
         super.setImageResource(resId);
         initializeBitmap();
     }
 
     @Override
     public void setImageURI(Uri uri) {
+        Log.d("测试一下","setImageURI(Uri uri)");
         super.setImageURI(uri);
         initializeBitmap();
     }
 
     @Override
     public void setColorFilter(ColorFilter cf) {
+        Log.d("测试一下","setColorFilter(ColorFilter cf)");
         if (cf == mColorFilter) {
             return;
         }
@@ -304,16 +328,19 @@ public class CircleImage extends ImageView {
 
     @Override
     public ColorFilter getColorFilter() {
+        Log.d("测试一下","getColorFilter()");
         return mColorFilter;
     }
 
     private void applyColorFilter() {
+        Log.d("测试一下","applyColorFilter()");
         if (mBitmapPaint != null) {
             mBitmapPaint.setColorFilter(mColorFilter);
         }
     }
 
     private Bitmap getBitmapFromDrawable(Drawable drawable) {
+        Log.d("测试一下","getBitmapFromDrawable(Drawable drawable)");
         if (drawable == null) {
             return null;
         }
@@ -342,6 +369,7 @@ public class CircleImage extends ImageView {
     }
 
     private void initializeBitmap() {
+        Log.d("测试一下","initializeBitmap()");
         if (mDisableCircularTransformation) {
             mBitmap = null;
         } else {
@@ -351,6 +379,7 @@ public class CircleImage extends ImageView {
     }
 
     private void setup() {
+        Log.d("测试一下","setup()");
         if (!mReady) {
             mSetupPending = true;
             return;
@@ -410,6 +439,7 @@ public class CircleImage extends ImageView {
     }
 
     private void updateShaderMatrix() {
+        Log.d("测试一下","updateShaderMatrix()");
         float scale;
         float dx = 0;
         float dy = 0;
@@ -430,4 +460,15 @@ public class CircleImage extends ImageView {
         mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.d("测试一下","onMeasure(int widthMeasureSpec, int heightMeasureSpec)");
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.d("测试一下","onLayout(boolean changed, int left, int top, int right, int bottom)");
+    }
 }

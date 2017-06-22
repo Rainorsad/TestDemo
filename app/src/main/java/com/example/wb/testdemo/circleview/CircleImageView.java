@@ -57,7 +57,7 @@ public class CircleImageView extends ImageView{
     private final RectF mBorderRect = new RectF();
     private final RectF mDrawableRect = new RectF();
     private boolean mBorderOverlay;
-    private boolean mReady = false;
+    private boolean mReady;
     private boolean mSetupPending;
     private boolean mDisableCircularTransformation = true;
 
@@ -69,9 +69,8 @@ public class CircleImageView extends ImageView{
     }
 
     public CircleImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
         Log.d("测试一下","CircleviewImage(Context context, AttributeSet attrs)");
-        inite();
     }
 
     public CircleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -96,7 +95,6 @@ public class CircleImageView extends ImageView{
             setup();
             mSetupPending = false;
         }
-        Log.d("测试一下1",getMeasuredHeight()+"  "+getMeasuredWidth());
     }
 
     @Override
@@ -134,12 +132,18 @@ public class CircleImageView extends ImageView{
 
 
     private void setup() {
+        Log.d("测试一下","setup()");
         if (!mReady){
             mSetupPending = true;
             return;
         }
 
+        if (getWidth() == 0 && getHeight() == 0) {
+            return;
+        }
+
         if (mSrcBitmap == null){
+            invalidate();
             return;
         }
         mDisableCircularTransformation = false;
@@ -213,7 +217,7 @@ public class CircleImageView extends ImageView{
         // 平移
         mShaderMatrix.postTranslate((int) (dx + 0.5f) + mDrawableRect.left, (int) (dy + 0.5f) + mDrawableRect.top);
         // 设置变换矩阵
-        mBitmapShader.setLocalMatrix(mShaderMatrix);
+//        mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
     @Override
@@ -235,7 +239,6 @@ public class CircleImageView extends ImageView{
         mPaint.setShader(mBitmapShader);
 
         //获得圆心
-
         canvas.drawCircle(mViewWidth/2, mViewHeight/2, mViewWidth/2,mPaint);
     }
 

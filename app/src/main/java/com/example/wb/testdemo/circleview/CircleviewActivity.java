@@ -16,7 +16,7 @@ import butterknife.InjectView;
 public class CircleviewActivity extends AppCompatActivity {
 
     @InjectView(R.id.circle)
-    CircleImageView circle;
+    CircleImage circle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
