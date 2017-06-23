@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
+import com.example.wb.testdemo.animation.AnimationActivity;
 import com.example.wb.testdemo.canves.CanvesActivity;
 import com.example.wb.testdemo.circleview.CircleviewActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TextView guaguale;
     @InjectView(R.id.ciecleview)
     TextView circle;
+    @InjectView(R.id.animation)
+    TextView animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview})
+    R.id.guaguale,R.id.ciecleview,R.id.animation})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -68,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.ciecleview:
                 initclass(CircleviewActivity.class);
+                break;
+            case R.id.animation:
+                initclass(AnimationActivity.class);
                 break;
         }
     }

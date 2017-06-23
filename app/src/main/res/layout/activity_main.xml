@@ -24,7 +24,6 @@
             android:textSize="24sp"
             android:text="ViewMotionevent测试"
             />
-
         <TextView
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
@@ -35,7 +34,6 @@
             android:textSize="24sp"
             android:text="二维码精确度测试"
             />
-
         <TextView
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
@@ -46,7 +44,6 @@
             android:textSize="24sp"
             android:text="text颜色测试"
             />
-
         <TextView
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
@@ -96,6 +93,16 @@
             android:gravity="center"
             android:textSize="24sp"
             android:text="自定义圆形ImageView测试"
+            />
+        <TextView
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/animation"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="动画效果View测试"
             />
     </com.zhy.autolayout.AutoLinearLayout>
 </android.support.v4.widget.NestedScrollView>
