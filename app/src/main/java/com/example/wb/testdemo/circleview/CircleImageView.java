@@ -100,7 +100,6 @@ public class CircleImageView extends ImageView{
     @Override
     public void setImageBitmap(Bitmap bm) {
         super.setImageBitmap(bm);
-
         Log.d("测试一下","setImageBitmap(Bitmap bm)");
         mSrcBitmap = bm;
         setup();
@@ -161,21 +160,16 @@ public class CircleImageView extends ImageView{
         }
         mDisableCircularTransformation = false;
         // 构建渲染器，用mBitmap来填充绘制区域 ，参数值代表如果图片太小的话 就直接拉伸
+        mBitmapShader = new BitmapShader(mSrcBitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
 
-//        //设置边界画笔样式
-//        mBorderPaint.setStyle(Paint.Style.STROKE);
-//        mBorderPaint.setAntiAlias(true);
-//        mBorderPaint.setColor(mBorderColor);
-//        mBorderPaint.setStrokeWidth(mBorderWidth); //画笔边界宽度
-//
         //取原图片的宽高
         mBitmapWidth = mSrcBitmap.getWidth();
         mBitmapHeight = mSrcBitmap.getHeight();
-        Log.d("测试一下11",mBitmapWidth+"  "+mBitmapHeight+"  "+getWidth()+"  "+getHeight());
 
         //设置含边界显示区域，取的是CircleImageView的布局实际大小，为方形，查看xml也就是160dp(240px)  getWidth得到是某个view的实际尺寸
         mBorderRect.set(calculateBounds());
-//        mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2, (mBorderRect.width() - mBorderWidth) / 2);
+        //选择半径
+        mBorderRadius = Math.min((mBorderRect.height() - mBorderWidth) / 2, (mBorderRect.width() - mBorderWidth) / 2);
 //        // 初始图片显示区域为mBorderRect（CircleImageView的布局实际大小）
         mDrawableRect.set(mBorderRect);
         if (!mBorderOverlay){
@@ -187,13 +181,11 @@ public class CircleImageView extends ImageView{
         mDrawableRadius = Math.min(mDrawableRect.height()/2,mDrawableRect.width()/2);
         //设置渲染器的变换矩阵也即是mBitmap用何种缩放形式填充
         updateShaderMatrix();
-
-        mBitmapShader = new BitmapShader(mSrcBitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
         invalidate();
     }
 
+    //取方形范围内的view视图
     private RectF calculateBounds() {
-        Log.d("测试",getWidth() + " "+getHeight() + " "+getPaddingLeft()+" "+getPaddingRight());
         int availableWidth  = getWidth() - getPaddingLeft() - getPaddingRight();
         int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
@@ -216,6 +208,7 @@ public class CircleImageView extends ImageView{
         mShaderMatrix.set(null);
         //这个不等式也就是(mBitmapWidth / mDrawableRect.width()) > (mBitmapHeight / mDrawableRect.height())
         //取最小的缩放比例
+        Log.d("坐标计算",mBitmapWidth+"  "+ mBitmapHeight+"   "+mDrawableRect);
         if (mBitmapWidth * mDrawableRect.height() > mDrawableRect.width() * mBitmapHeight) {
             //y轴缩放 x轴平移 使得图片的y轴方向的边的尺寸缩放到图片显示区域（mDrawableRect）一样）
             scale = mDrawableRect.height() / (float) mBitmapHeight;
@@ -230,6 +223,7 @@ public class CircleImageView extends ImageView{
         // 平移
         mShaderMatrix.postTranslate((int) (dx + 0.5f) + mDrawableRect.left, (int) (dy + 0.5f) + mDrawableRect.top);
         // 设置变换矩阵
+        Log.d("坐标计算",mShaderMatrix.toString());
         mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
@@ -252,20 +246,9 @@ public class CircleImageView extends ImageView{
         mPaint.setShader(mBitmapShader);
 
         //获得圆心
-        canvas.drawCircle(mViewWidth/2, mViewHeight/2, mViewWidth/2,mPaint);
+        if (mBorderRect != null) {
+            canvas.drawCircle(mBorderRect.centerX(), mBorderRect.centerY(), mBorderRadius, mPaint);
+        }
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.d("测试一下","onMeasure(int widthMeasureSpec, int heightMeasureSpec)");
-        mViewWidth = getMeasuredWidth();
-        mViewHeight = getMeasuredHeight();
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        Log.d("测试一下","onLayout(boolean changed, int left, int top, int right, int bottom)");
-    }
 }

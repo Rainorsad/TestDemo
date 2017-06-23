@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="画笔时钟"
+            android:text="画笔view时钟"
             />
         <TextView
             android:paddingBottom="10dp"
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="美图秀秀图片处理"
+            android:text="美图秀秀图片view处理"
             />
         <TextView
             android:paddingBottom="10dp"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="刮刮乐测试"
+            android:text="自定义刮刮乐View测试"
             />
         <TextView
             android:paddingBottom="10dp"
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="圆形头像测试"
+            android:text="自定义圆形ImageView测试"
             />
     </com.zhy.autolayout.AutoLinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <com.example.wb.testdemo.circleview.CircleImage
+    <com.example.wb.testdemo.circleview.CircleImageView
         android:layout_gravity="center"
         android:id="@+id/circle"
         android:layout_width="250dp"

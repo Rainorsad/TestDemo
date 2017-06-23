@@ -446,7 +446,7 @@ public class CircleImage extends ImageView {
         float dy = 0;
 
         mShaderMatrix.set(null);
-
+        Log.d("坐标计算",mBitmapWidth+"  "+ mBitmapHeight+"   "+mDrawableRect);
         if (mBitmapWidth * mDrawableRect.height() > mDrawableRect.width() * mBitmapHeight) {
             scale = mDrawableRect.height() / (float) mBitmapHeight;
             dx = (mDrawableRect.width() - mBitmapWidth * scale) * 0.5f;
@@ -458,6 +458,7 @@ public class CircleImage extends ImageView {
         mShaderMatrix.setScale(scale, scale);
         mShaderMatrix.postTranslate((int) (dx + 0.5f) + mDrawableRect.left, (int) (dy + 0.5f) + mDrawableRect.top);
 
+        Log.d("坐标计算",mShaderMatrix.toString());
         mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
