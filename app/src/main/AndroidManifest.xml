@@ -78,6 +78,8 @@
         <activity android:name=".circleview.CircleviewActivity" />
 
         <activity android:name=".animation.AnimationActivity" />
+
+        <activity android:name=".itemDecoration.ItemOritionActivity" />
     </application>
 
 </manifest>

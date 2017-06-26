@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="text颜色测试"
+            android:text="ItemDecoration进阶"
             />
         <TextView
             android:paddingBottom="10dp"

@@ -5,3 +5,4 @@
 3.美图秀秀view处理
 4.自定义刮刮乐view
 5.自定义圆形控件imageview
+6.android动画效果

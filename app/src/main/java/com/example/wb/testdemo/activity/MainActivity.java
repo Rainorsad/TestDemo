@@ -11,6 +11,7 @@ import com.example.wb.testdemo.animation.AnimationActivity;
 import com.example.wb.testdemo.canves.CanvesActivity;
 import com.example.wb.testdemo.circleview.CircleviewActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
+import com.example.wb.testdemo.itemDecoration.ItemOritionActivity;
 import com.example.wb.testdemo.meituxiuxui.MeituActivity;
 
 import butterknife.ButterKnife;
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.erweimatest:
                 break;
             case R.id.textviewtest:
-                initclass(TextViewColorSize.class);
+//                initclass(TextViewColorSize.class);
+                initclass(ItemOritionActivity.class);
                 break;
             case R.id.qqdrawable:
                 initclass(QqDrawableActivity.class);
