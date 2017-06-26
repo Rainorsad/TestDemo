@@ -33,6 +33,8 @@ public class ItemOritionActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
+        MyItemOrition orition = new MyItemOrition();
+        recycleview.addItemDecoration(orition);
         recycleview.setLayoutManager(manager);
         recycleview.setAdapter(new MyAdapter());
     }
