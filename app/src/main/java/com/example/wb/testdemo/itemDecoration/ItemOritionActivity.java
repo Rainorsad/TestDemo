@@ -24,7 +24,7 @@ public class ItemOritionActivity extends AppCompatActivity {
     @InjectView(R.id.recycleview)
     RecyclerView recycleview;
 
-    private String data[] = {"a","啊","啊啊","啊啊啊","啊啊啊啊","b","吧","吧吧","吧吧吧","吧吧吧吧","c","从","从从","从从从","从从从从"};
+    private String[]data = {"a","啊","啊啊","啊啊啊","啊啊啊啊","b","吧","吧吧","吧吧吧","吧吧吧吧","c","从","从从","从从从","从从从从"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +33,9 @@ public class ItemOritionActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        MyItemOrition orition = new MyItemOrition();
+        MyItemOrition orition = new MyItemOrition(MyItemOrition.VERTICAL);
+        orition.setColor(0xFFDBD6D2);
+        orition.setHeight(2);
         recycleview.addItemDecoration(orition);
         recycleview.setLayoutManager(manager);
         recycleview.setAdapter(new MyAdapter());

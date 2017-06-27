@@ -3,29 +3,48 @@ package com.example.wb.testdemo.itemDecoration;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 
 /**
  * Created by Zhangchen on 2017/6/26.
  */
 
-public class MyItemOrition extends RecyclerView.ItemDecoration{
+public class MyItemOrition extends RecyclerView.ItemDecoration {
 
-    private int mHeight = 5;//分割线高度
+    /**
+     * 水平方向
+     */
+    public static final int HORIZONTAL = LinearLayoutManager.HORIZONTAL;
+
+    /**
+     * 垂直方向
+     */
+    public static final int VERTICAL = LinearLayoutManager.VERTICAL;
+
+    private int mHeight = 1;//分割线高度
+    private int mColor;//分割线颜色
+    private int orientation;//分割线方向
+
     private Paint mPaint;
 
-    public MyItemOrition(){
-        mPaint = new Paint();
+    public MyItemOrition() {
+        this(VERTICAL);
     }
+
+    public MyItemOrition(int orientation) {
+        this.orientation = orientation;
+        mPaint = new Paint();
+
+    }
+
     //通过Rect为每个Item设置偏移，用于绘制Decoration
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         int position = parent.getChildAdapterPosition(view);
         if (position != 0){
-            //为第一个item预留空间
             outRect.top = mHeight;
         }
     }
@@ -34,14 +53,22 @@ public class MyItemOrition extends RecyclerView.ItemDecoration{
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
-        final int left = parent.getLeft();
-        final int right = parent.getRight();
         final int childCount = parent.getChildCount();
-        for (int i=0;i<childCount;i++){
+        for (int i = 0; i < childCount; i++) {
             final View childView = parent.getChildAt(i);
-            final int bottom = childView.getTop();
-            final int top = bottom - mHeight;
-            c.drawRect(left,top,right,bottom,mPaint);
+            if (orientation == HORIZONTAL) {
+                final int top = parent.getTop();
+                final int left = childView.getLeft() - mHeight;
+                final int right = childView.getLeft();
+                final int bottom = parent.getBottom();
+                c.drawRect(left, top, right, bottom, mPaint);
+            } else if (orientation == VERTICAL) {
+                final int left = parent.getLeft();
+                final int right = parent.getRight();
+                final int bottom = childView.getTop();
+                final int top = bottom - mHeight;
+                c.drawRect(left, top, right, bottom, mPaint);
+            }
         }
     }
 
@@ -51,21 +78,23 @@ public class MyItemOrition extends RecyclerView.ItemDecoration{
         super.onDrawOver(c, parent, state);
     }
 
-    public interface GroupTitle{
-        String getGroupName(int position);
+    /**
+     * 设置分隔线颜色
+     *
+     * @param color
+     */
+    public void setColor(int color) {
+        this.mColor = color;
+        mPaint.setColor(color);
     }
 
-    private boolean isTitle(int positon){
-        if (positon == 0){
-            return true;
-        }else {
-            String titleId = getGroupName(positon - 1);
-            String contect = getGroupName(positon);
-            return !TextUtils.equals(titleId,contect);
-        }
+    /**
+     * 设置分隔线高度
+     *
+     * @param height
+     */
+    public void setHeight(int height) {
+        this.mHeight = height;
     }
 
-    private String getGroupName(int i) {
-        return null;
-    }
 }

@@ -16,13 +16,17 @@ allprojects {
         jcenter()
     }
     gradle.projectsEvaluated {
-
         tasks.withType(JavaCompile) {
-
             options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-
         }
+    }
 
+    gradle.taskGraph.whenReady {
+        tasks.each { task ->
+            if (task.name.equals('mockableAndroidJar')) {
+                task.enabled = false
+            }
+        }
     }
 }
 
