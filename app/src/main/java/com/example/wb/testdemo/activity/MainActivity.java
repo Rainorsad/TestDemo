@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
 import com.example.wb.testdemo.animation.AnimationActivity;
+import com.example.wb.testdemo.animation.GoldAnimaActivity;
 import com.example.wb.testdemo.canves.CanvesActivity;
 import com.example.wb.testdemo.circleview.CircleviewActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     TextView circle;
     @InjectView(R.id.animation)
     TextView animation;
+    @InjectView(R.id.goldanimation)
+    TextView goldanimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview,R.id.animation})
+    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -76,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.animation:
                 initclass(AnimationActivity.class);
+                break;
+            case R.id.goldanimation:
+                initclass(GoldAnimaActivity.class);
                 break;
         }
     }

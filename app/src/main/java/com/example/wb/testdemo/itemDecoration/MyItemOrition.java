@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -33,7 +34,8 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
         this(VERTICAL);
     }
 
-    public MyItemOrition(int orientation) {
+    public MyItemOrition(int orientation ) {
+        Log.d("测试一下","MyItemOrition(int orientation )");
         this.orientation = orientation;
         mPaint = new Paint();
 
@@ -42,6 +44,7 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
     //通过Rect为每个Item设置偏移，用于绘制Decoration
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        Log.d("测试一下","getItemOffsets");
         super.getItemOffsets(outRect, view, parent, state);
         int position = parent.getChildAdapterPosition(view);
         if (position != 0){
@@ -52,6 +55,7 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
     //通过该方法，在Canvas上绘制内容，在绘制Item之前调用。（如果没有通过getItemOffsets设置偏移的话，Item的内容会将其覆盖）
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        Log.d("测试一下","onDraw(Canvas c, RecyclerView parent, RecyclerView.State state)");
         super.onDraw(c, parent, state);
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -75,6 +79,7 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
     //通过该方法，在Canvas上绘制内容,在Item之后调用。(画的内容会覆盖在item的上层)
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        Log.d("测试一下","onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state)");
         super.onDrawOver(c, parent, state);
     }
 
@@ -84,6 +89,7 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
      * @param color
      */
     public void setColor(int color) {
+        Log.d("测试一下","setColor(int color)");
         this.mColor = color;
         mPaint.setColor(color);
     }
@@ -94,6 +100,7 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
      * @param height
      */
     public void setHeight(int height) {
+        Log.d("测试一下","setHeight(int height)");
         this.mHeight = height;
     }
 

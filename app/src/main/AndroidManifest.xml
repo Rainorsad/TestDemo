@@ -82,6 +82,8 @@
         <activity android:name=".animation.AnimationActivity" />
 
         <activity android:name=".itemDecoration.ItemOritionActivity" />
+
+        <activity android:name=".animation.GoldAnimaActivity" />
     </application>
 
 </manifest>
