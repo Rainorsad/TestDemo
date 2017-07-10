@@ -37,7 +37,6 @@
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -84,6 +83,12 @@
         <activity android:name=".itemDecoration.ItemOritionActivity" />
 
         <activity android:name=".animation.GoldAnimaActivity" />
+
+        <activity android:name=".adapter.MainActivity" />
+
+        <activity android:name="com.foamtrace.photopicker.PhotoPickerActivity" android:theme="@style/PhotoPickerTheme" android:configChanges="orientation|screenSize" />
+        <activity android:name="com.foamtrace.photopicker.PhotoPreviewActivity" android:theme="@style/PhotoPickerTheme" />
+
     </application>
 
 </manifest>

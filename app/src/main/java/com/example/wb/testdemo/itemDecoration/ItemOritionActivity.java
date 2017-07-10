@@ -42,6 +42,7 @@ public class ItemOritionActivity extends AppCompatActivity {
     }
 
     class  MyAdapter extends RecyclerView.Adapter{
+
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_textviewcolor,parent,false);

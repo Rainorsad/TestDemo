@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 initclass(AnimationActivity.class);
                 break;
             case R.id.goldanimation:
+//                initclass(com.example.wb.testdemo.adapter.MainActivity.class);
                 initclass(GoldAnimaActivity.class);
                 break;
         }

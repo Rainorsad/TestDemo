@@ -42,4 +42,5 @@ dependencies {
     compile 'com.blankj:utilcode:1.6.4'
     compile files('libs/android-async-http-1.4.6.jar')
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.foamtrace:photopicker:1.0'
 }

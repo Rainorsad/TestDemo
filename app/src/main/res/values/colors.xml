@@ -10,4 +10,7 @@
     <color name="black">#000000</color>
     <color name="progreen">#53da4b</color><!--按钮绿色-->
     <color name="progreen_low">#baf0b7</color><!--按钮浅绿色-->
+
+    <color name="photopicker_background">#181819</color>
+
 </resources>
