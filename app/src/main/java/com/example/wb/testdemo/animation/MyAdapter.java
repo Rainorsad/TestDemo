@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
 
+import java.util.List;
+
 /**
  * Created by Zhangchen on 2017/7/10.
  */
@@ -39,10 +41,10 @@ public class MyAdapter extends RecyclerView.Adapter {
         notifyItemInserted(0);
     }
 
-    private String[] data;
+    private  List<String> data;
     private Context context;
 
-    public MyAdapter(Context context, String[] list) {
+    public MyAdapter(Context context, List<String> list) {
         this.context = context;
         this.data = list;
     }
@@ -78,7 +80,7 @@ public class MyAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == TYPE_NORMAL) {
             MyViewHolder myViewHolder = (MyViewHolder) holder;
-            myViewHolder.tv.setText(data[position]);
+            myViewHolder.tv.setText(data.get(position));
             return;
         }else if (getItemViewType(position) == TYPE_HEADER){
             return;
@@ -90,13 +92,13 @@ public class MyAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         if (mHeaderView == null && mFooterView == null) {
-            return data.length;
+            return data.size();
         }else if(mHeaderView == null && mFooterView != null){
-            return data.length + 1;
+            return data.size() + 1;
         }else if (mHeaderView != null && mFooterView == null){
-            return data.length + 1;
+            return data.size() + 1;
         }else {
-            return data.length + 2;
+            return data.size() + 2;
         }
     }
 

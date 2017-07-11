@@ -13,6 +13,7 @@ import com.example.wb.testdemo.canves.CanvesActivity;
 import com.example.wb.testdemo.circleview.CircleviewActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
 import com.example.wb.testdemo.itemDecoration.ItemOritionActivity;
+import com.example.wb.testdemo.listviewtest.ListViewActivity;
 import com.example.wb.testdemo.meituxiuxui.MeituActivity;
 
 import butterknife.ButterKnife;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     TextView animation;
     @InjectView(R.id.goldanimation)
     TextView goldanimation;
+    @InjectView(R.id.listtest)
+    TextView tvlisttest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation})
+    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -83,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.goldanimation:
 //                initclass(com.example.wb.testdemo.adapter.MainActivity.class);
                 initclass(GoldAnimaActivity.class);
+                break;
+            case R.id.listtest:
+                initclass(ListViewActivity.class);
                 break;
         }
     }

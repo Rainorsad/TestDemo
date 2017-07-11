@@ -105,14 +105,24 @@
             android:text="动画效果View测试"
             />
         <TextView
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/goldanimation"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="金币跳动动画效果View测试"
+        />
+        <TextView
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:id="@+id/goldanimation"
+            android:id="@+id/listtest"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="24sp"
-            android:text="金币跳动动画效果View测试"
+            android:text="listview选中测试"
             />
     </com.zhy.autolayout.AutoLinearLayout>
 </android.support.v4.widget.NestedScrollView>
