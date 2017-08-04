@@ -44,4 +44,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.foamtrace:photopicker:1.0'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'com.foamtrace:photopicker:1.0'
+    compile 'top.zibin:Luban:1.1.2'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
 }

@@ -91,6 +91,8 @@
 
         <activity android:name=".listviewtest.ListViewActivity" />
 
+        <activity android:name=".compressimg.CompressimgActivity" />
+
     </application>
 
 </manifest>

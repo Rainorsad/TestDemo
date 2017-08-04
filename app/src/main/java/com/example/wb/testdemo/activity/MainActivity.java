@@ -11,6 +11,7 @@ import com.example.wb.testdemo.animation.AnimationActivity;
 import com.example.wb.testdemo.animation.GoldAnimaActivity;
 import com.example.wb.testdemo.canves.CanvesActivity;
 import com.example.wb.testdemo.circleview.CircleviewActivity;
+import com.example.wb.testdemo.compressimg.CompressimgActivity;
 import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
 import com.example.wb.testdemo.itemDecoration.ItemOritionActivity;
 import com.example.wb.testdemo.listviewtest.ListViewActivity;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     TextView goldanimation;
     @InjectView(R.id.listtest)
     TextView tvlisttest;
+    @InjectView(R.id.compressimg)
+    TextView compressimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest})
+    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest,R.id.compressimg})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -89,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.listtest:
                 initclass(ListViewActivity.class);
+                break;
+            case R.id.compressimg:
+                initclass(CompressimgActivity.class);
                 break;
         }
     }

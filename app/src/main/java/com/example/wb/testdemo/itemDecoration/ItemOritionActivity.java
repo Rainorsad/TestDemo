@@ -47,13 +47,14 @@ public class ItemOritionActivity extends AppCompatActivity {
         for (int i=0;i<10;i++){
             s.add(i+"哈哈哈");
         }
-        MyAdapter adapter = new MyAdapter(this,s);
+        MyAdapter adapter = new MyAdapter(s);
         recycleview.setAdapter(adapter);
 
         View headview = LayoutInflater.from(recycleview.getContext()).inflate(R.layout.activity_textviewcolor,recycleview,false);
         TextView tvhead = (TextView) headview.findViewById(R.id.tv);
         tvhead.setText("我是头部");
-        adapter.setmHeaderView(tvhead);
+        adapter.setHeaderView(tvhead);
+
     }
 
 }

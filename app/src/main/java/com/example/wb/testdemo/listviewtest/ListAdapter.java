@@ -56,7 +56,7 @@ public class ListAdapter extends BaseAdapter{
         return convertView;
     }
 
-    public final class ViewHolder{
+    public  class ViewHolder{
         public TextView info;
     }
 
