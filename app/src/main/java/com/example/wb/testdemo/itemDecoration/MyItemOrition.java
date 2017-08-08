@@ -1,5 +1,6 @@
 package com.example.wb.testdemo.itemDecoration;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -27,24 +28,29 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
     private int mHeight = 1;//分割线高度
     private int mColor;//分割线颜色
     private int orientation;//分割线方向
+    private int padleft = 0;//paddingleft或者paddingtop
+    private int padright = 0;//paddingright或者paddingbottom
 
+    private float scale ; //将dp转换为px单位
+    private Context context;
     private Paint mPaint;
 
-    public MyItemOrition() {
-        this(VERTICAL);
+    public MyItemOrition(Context context) {
+        this(context,VERTICAL);
     }
 
-    public MyItemOrition(int orientation ) {
-        Log.d("测试一下","MyItemOrition(int orientation )");
+    public MyItemOrition(Context context,int orientation ) {
+        Log.d("测试一下","MyItemOrition(Context context,int orientation )");
+        this.context = context;
         this.orientation = orientation;
         mPaint = new Paint();
-
+        scale = context.getResources().getDisplayMetrics().density; //将dp转换为px
     }
 
     //通过Rect为每个Item设置偏移，用于绘制Decoration
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        Log.d("测试一下","getItemOffsets");
+        Log.e("测试一下","getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)");
         super.getItemOffsets(outRect, view, parent, state);
         int position = parent.getChildAdapterPosition(view);
         if (position != 0){
@@ -67,8 +73,8 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
                 final int bottom = parent.getBottom();
                 c.drawRect(left, top, right, bottom, mPaint);
             } else if (orientation == VERTICAL) {
-                final int left = parent.getLeft();
-                final int right = parent.getRight();
+                final int left = parent.getLeft() + padleft;
+                final int right = parent.getRight() - padright;
                 final int bottom = childView.getTop();
                 final int top = bottom - mHeight;
                 c.drawRect(left, top, right, bottom, mPaint);
@@ -101,7 +107,18 @@ public class MyItemOrition extends RecyclerView.ItemDecoration {
      */
     public void setHeight(int height) {
         Log.d("测试一下","setHeight(int height)");
-        this.mHeight = height;
+        this.mHeight = (int) (height * scale +0.5f);
     }
 
+    /**
+     * 设置分隔线padding,当且仅当是VERTICAL模式下有效
+     */
+    public void setPadding(int one,int two){
+        padleft = (int) (one * scale +0.5f);
+        padright = (int) (two * scale +0.5f);
+    }
+
+    public void setPadding(int i) {
+        padleft = padright = (int) (i * scale +0.5f);
+    }
 }

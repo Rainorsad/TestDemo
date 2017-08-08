@@ -5,9 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import com.example.wb.testdemo.R;
 import com.example.wb.testdemo.animation.MyAdapter;
@@ -27,7 +24,7 @@ public class ItemOritionActivity extends AppCompatActivity {
     @InjectView(R.id.recycleview)
     RecyclerView recycleview;
 
-    private String[]data = {"a","啊","啊啊","啊啊啊","啊啊啊啊","b","吧","吧吧","吧吧吧","吧吧吧吧","c","从","从从","从从从","从从从从"};
+    private String[]data = {"a","啊"};
     private List<String> s;
 
     @Override
@@ -37,9 +34,9 @@ public class ItemOritionActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        MyItemOrition orition = new MyItemOrition(MyItemOrition.VERTICAL);
+        MyItemOrition orition = new MyItemOrition(this,MyItemOrition.VERTICAL);
         orition.setColor(0xFFDBD6D2);
-        orition.setHeight(2);
+        orition.setHeight(10);
         recycleview.addItemDecoration(orition);
         recycleview.setLayoutManager(manager);
 
@@ -49,11 +46,6 @@ public class ItemOritionActivity extends AppCompatActivity {
         }
         MyAdapter adapter = new MyAdapter(s);
         recycleview.setAdapter(adapter);
-
-        View headview = LayoutInflater.from(recycleview.getContext()).inflate(R.layout.activity_textviewcolor,recycleview,false);
-        TextView tvhead = (TextView) headview.findViewById(R.id.tv);
-        tvhead.setText("我是头部");
-        adapter.setHeaderView(tvhead);
 
     }
 
