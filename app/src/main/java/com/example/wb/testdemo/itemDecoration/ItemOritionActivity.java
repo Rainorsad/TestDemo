@@ -24,7 +24,6 @@ public class ItemOritionActivity extends AppCompatActivity {
     @InjectView(R.id.recycleview)
     RecyclerView recycleview;
 
-    private String[]data = {"a","啊"};
     private List<String> s;
 
     @Override
@@ -36,12 +35,13 @@ public class ItemOritionActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         MyItemOrition orition = new MyItemOrition(this,MyItemOrition.VERTICAL);
         orition.setColor(0xFFDBD6D2);
-        orition.setHeight(10);
+//        orition.setLabel(true,"ceshi",10,0XFFDBD6D2,16);
+//        orition.setImageLabel(true,R.mipmap.fragme_mysmschool);
         recycleview.addItemDecoration(orition);
         recycleview.setLayoutManager(manager);
 
         s = new ArrayList<>();
-        for (int i=0;i<10;i++){
+        for (int i=0;i<20;i++){
             s.add(i+"哈哈哈");
         }
         MyAdapter adapter = new MyAdapter(s);
