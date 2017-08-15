@@ -3,7 +3,9 @@
 buildscript {
     repositories {
         jcenter()
+
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
         // NOTE: Do not place your application dependencies here; they belong
@@ -14,6 +16,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {

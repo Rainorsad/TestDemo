@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.itemorition.ItemOrition;
 import com.example.wb.testdemo.R;
 import com.example.wb.testdemo.animation.MyAdapter;
 
@@ -33,11 +34,11 @@ public class ItemOritionActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        MyItemOrition orition = new MyItemOrition(this,MyItemOrition.VERTICAL);
-        orition.setColor(0xFFDBD6D2);
-//        orition.setLabel(true,"ceshi",10,0XFFDBD6D2,16);
-//        orition.setImageLabel(true,R.mipmap.fragme_mysmschool);
-        recycleview.addItemDecoration(orition);
+        ItemOrition itemOrition = new ItemOrition(this);
+        itemOrition.setColor(0XFF0ABFFA);
+//        itemOrition.setLabel(true,"测试",10);
+        itemOrition.setImageLabel(true,R.mipmap.fragme_mysmschool);
+        recycleview.addItemDecoration(itemOrition);
         recycleview.setLayoutManager(manager);
 
         s = new ArrayList<>();
