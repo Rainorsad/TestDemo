@@ -46,5 +46,5 @@ dependencies {
     compile 'top.zibin:Luban:1.1.2'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
-    compile 'com.github.Rainorsad:RecycleItemOrition:v1.0'
+    compile 'com.github.Rainorsad:RecycleItemOrition:v2.0'
 }

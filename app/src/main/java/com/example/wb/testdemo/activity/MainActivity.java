@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvlisttest;
     @InjectView(R.id.compressimg)
     TextView compressimg;
+    @InjectView(R.id.messengerservice)
+    TextView messenger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest,R.id.compressimg})
+    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest,R.id.compressimg,R.id.messengerservice})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:

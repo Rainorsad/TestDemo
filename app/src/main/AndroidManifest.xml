@@ -94,6 +94,15 @@
 
         <activity android:name=".compressimg.CompressimgActivity" />
 
+        <service android:name=".activity.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            >
+        <intent-filter>
+            <action android:name="com.zhy.aidl.calc"></action>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </service>
     </application>
 
 </manifest>
