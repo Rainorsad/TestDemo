@@ -21,8 +21,8 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     private Context context;
     private List<String> list;
-    private int HEADVIEW = 1001;
-    private int FOOTVIEW = 2002;
+    private int TYPE_HEADVIEW = 1001;
+    private int TYPE_FOOTVIEW = 2002;
     private View headView;
     private View footView;
 
@@ -32,9 +32,9 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == HEADVIEW){
+        if (viewType == TYPE_HEADVIEW){
             return new MyViewHolder(headView);
-        }else if (viewType == FOOTVIEW){
+        }else if (viewType == TYPE_FOOTVIEW){
             return new MyViewHolder(footView);
         }else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_textviewcolor, parent, false);
@@ -45,10 +45,8 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemViewType(int position) {
-        if (isHeadView()){
-            return HEADVIEW;
-        }else if (isFootView()){
-            return FOOTVIEW;
+        if (isHeadView() && position == 0){
+            return TYPE_HEADVIEW;
         }else {
             return 0;
         }
@@ -63,7 +61,7 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
                 @Override
                 public int getSpanSize(int position) {
                     int i= 1;
-                    if((isHeadView() && position == 0) || (isFootView() && position == getItemCount() -1)){
+                    if((isHeadView() && position == 0)){
                         i = ((GridLayoutManager) layoutManager).getSpanCount();
                     }
                     return i;
@@ -74,7 +72,7 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (!isHeadView() && !isFootView()) {
+        if (!isHeadView()) {
             if (isHeadView()) position--;
             MyViewHolder h = (MyViewHolder) holder;
             h.text.setText(list.get(position));
@@ -85,7 +83,6 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
     public int getItemCount() {
         int coun = list.size();
         if (isHeadView()) coun++;
-        if (isFootView()) coun++;
         return coun;
     }
 
@@ -98,12 +95,13 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
     }
 
     private boolean isHeadView(){
-        return headView != null;
+        if ( headView != null) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    private boolean isFootView(){
-        return footView != null;
-    }
 
     public void addHeadView(View view){
         Log.e("测试","添加头部");
