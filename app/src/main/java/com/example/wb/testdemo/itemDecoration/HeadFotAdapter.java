@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Zhangchen on 2017/8/21.
  */
 
-public class HeadFotAdapter extends RecyclerView.Adapter{
+public class HeadFotAdapter extends RecyclerView.Adapter {
 
     private Context context;
     private List<String> list;
@@ -26,17 +26,19 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
     private View headView;
     private View footView;
 
-    public HeadFotAdapter(Context context,List<String> list){
+    public HeadFotAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == TYPE_HEADVIEW){
+        Log.e("头部测试",viewType+"");
+        if (viewType == TYPE_HEADVIEW) {
             return new MyViewHolder(headView);
-        }else if (viewType == TYPE_FOOTVIEW){
+        } else if (viewType == TYPE_FOOTVIEW) {
             return new MyViewHolder(footView);
-        }else {
+        } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_textviewcolor, parent, false);
             MyViewHolder holder = new MyViewHolder(view);
             return holder;
@@ -45,9 +47,9 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemViewType(int position) {
-        if (isHeadView() && position == 0){
+        if (isHeadView() && position == 0) {
             return TYPE_HEADVIEW;
-        }else {
+        } else {
             return 0;
         }
     }
@@ -55,13 +57,13 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-        if (layoutManager instanceof GridLayoutManager){
+        if (layoutManager instanceof GridLayoutManager) {
             final GridLayoutManager.SpanSizeLookup originaSpanSize = ((GridLayoutManager) layoutManager).getSpanSizeLookup();
-            ((GridLayoutManager) layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+            ((GridLayoutManager) layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    int i= 1;
-                    if((isHeadView() && position == 0)){
+                    int i = 1;
+                    if ((isHeadView() && position == 0)) {
                         i = ((GridLayoutManager) layoutManager).getSpanCount();
                     }
                     return i;
@@ -72,11 +74,12 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (!isHeadView()) {
-            if (isHeadView()) position--;
-            MyViewHolder h = (MyViewHolder) holder;
-            h.text.setText(list.get(position));
+        if (isHeadView()) position--;
+        if (position <0){
+            return;
         }
+        MyViewHolder h = (MyViewHolder) holder;
+        h.text.setText(list.get(position));
     }
 
     @Override
@@ -88,23 +91,24 @@ public class HeadFotAdapter extends RecyclerView.Adapter{
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView text;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             text = (TextView) itemView.findViewById(R.id.tv);
         }
     }
 
-    private boolean isHeadView(){
-        if ( headView != null) {
+    private boolean isHeadView() {
+        if (headView != null) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
 
-    public void addHeadView(View view){
-        Log.e("测试","添加头部");
+    public void addHeadView(View view) {
+        Log.e("测试", "添加头部");
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(params);
         headView = view;

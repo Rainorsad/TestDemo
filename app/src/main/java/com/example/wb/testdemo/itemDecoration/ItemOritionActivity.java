@@ -40,6 +40,7 @@ public class ItemOritionActivity extends AppCompatActivity {
         recycleview.addItemDecoration(orition);
         recycleview.setLayoutManager(manager);
         HeadFotAdapter adapter = new HeadFotAdapter(this,s);
+//        MyAdapter adapter = new MyAdapter(s,this);
         recycleview.setAdapter(adapter);
 
         adapter.addHeadView(LayoutInflater.from(this).inflate(R.layout.activity_textviewcolor,null));
