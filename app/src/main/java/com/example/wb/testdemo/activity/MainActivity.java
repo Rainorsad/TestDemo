@@ -16,6 +16,7 @@ import com.example.wb.testdemo.guaguale.GuaguaLeActivity;
 import com.example.wb.testdemo.itemDecoration.ItemOritionActivity;
 import com.example.wb.testdemo.listviewtest.ListViewActivity;
 import com.example.wb.testdemo.meituxiuxui.MeituActivity;
+import com.example.wb.testdemo.provide.ProviderActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     TextView compressimg;
     @InjectView(R.id.messengerservice)
     TextView messenger;
+    @InjectView(R.id.contentprovide)
+    TextView contentprovide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.viewmotiontest, R.id.erweimatest,R.id.textviewtest,R.id.qqdrawable,R.id.canves,R.id.photoshop,
-    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest,R.id.compressimg,R.id.messengerservice})
+    R.id.guaguale,R.id.ciecleview,R.id.animation,R.id.goldanimation,R.id.listtest,R.id.compressimg,R.id.messengerservice,
+    R.id.contentprovide})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewmotiontest:
@@ -97,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.compressimg:
                 initclass(CompressimgActivity.class);
+                break;
+            case R.id.contentprovide:
+                initclass(ProviderActivity.class);
                 break;
         }
     }

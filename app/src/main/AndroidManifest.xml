@@ -94,6 +94,8 @@
 
         <activity android:name=".compressimg.CompressimgActivity" />
 
+        <activity android:name=".provide.ProviderActivity" />
+
         <service android:name=".activity.MessengerService"
             android:enabled="true"
             android:exported="true"
@@ -103,6 +105,12 @@
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </service>
+
+        <provider
+            android:authorities="com.android.provider"
+            android:name=".provide.BookProvider"
+            android:process=":provider"
+            />
     </application>
 
 </manifest>
