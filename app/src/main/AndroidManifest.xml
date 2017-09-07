@@ -96,6 +96,8 @@
 
         <activity android:name=".provide.ProviderActivity" />
 
+        <activity android:name=".recyclerviewspreads.ReSpreadsActivity" />
+
         <service android:name=".activity.MessengerService"
             android:enabled="true"
             android:exported="true"
