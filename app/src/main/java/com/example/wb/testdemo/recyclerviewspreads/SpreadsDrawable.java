@@ -92,10 +92,6 @@ public class SpreadsDrawable extends FrameLayout{
             }
         }
 
-        @Override
-        public boolean onEdgeLock(int edgeFlags) {
-            return ViewDragHelper.EDGE_RIGHT;
-        }
     };
 
     @Override
